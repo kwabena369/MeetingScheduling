@@ -13,7 +13,7 @@ describe('App Component', () => {
   beforeEach(() => {
     fetch.mockClear();
   });
-
+// rtrter
   it('loads and displays meetings', async () => {
     const mockMeetings = [
       { id: 1, title: 'Test Meeting', description: 'Test Description', date: '2025-01-03T09:00:00Z', duration: 30, participants: 'Client B' }
