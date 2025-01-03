@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { 
   TextField, 
@@ -13,7 +13,9 @@ import {
   Container,
   ThemeProvider,
   createTheme,
-  Paper
+  Paper,
+  Alert,
+  Snackbar
 } from '@mui/material';
 import { CalendarMonth, Schedule, AccessTime, Group } from '@mui/icons-material';
 
@@ -55,7 +57,8 @@ const theme = createTheme({
 });
 
 const ScheduleMeetingForm = ({ onSubmit, availableSlots }) => {
-  const [meetingDetails, setMeetingDetails] = useState({
+  const [showToast, setShowToast] = useState(false);
+  const initialState = {
     title: '',
     description: '',
     date: null,
@@ -65,8 +68,9 @@ const ScheduleMeetingForm = ({ onSubmit, availableSlots }) => {
       { id: 1, name: "Freelancer A", role: "freelancer", key: "participant-1" },
       { id: 2, name: "Client B", role: "client", key: "participant-2" }
     ]
-  });
+  };
 
+  const [meetingDetails, setMeetingDetails] = useState(initialState);
   const [selectedSlot, setSelectedSlot] = useState('');
 
   const handleChange = (e) => {
@@ -100,6 +104,18 @@ const ScheduleMeetingForm = ({ onSubmit, availableSlots }) => {
       participants: meetingDetails.participants.map(({ key, ...participant }) => participant)
     };
     onSubmit(formattedData);
+    
+    // Show toast and reset form
+    setShowToast(true);
+    setMeetingDetails(initialState);
+    setSelectedSlot('');
+  };
+
+  const handleCloseToast = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setShowToast(false);
   };
 
   return (
@@ -109,11 +125,21 @@ const ScheduleMeetingForm = ({ onSubmit, availableSlots }) => {
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
-          backgroundColor: 'background.default',
           py: 4
         }}
       >
         <Container maxWidth="sm">
+          <Snackbar
+            open={showToast}
+            autoHideDuration={3000}
+            onClose={handleCloseToast}
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          >
+            <Alert onClose={handleCloseToast} severity="success" sx={{ width: '100%' }}>
+              Meeting scheduled successfully!
+            </Alert>
+          </Snackbar>
+
           <Paper
             elevation={3}
             sx={{
@@ -220,8 +246,6 @@ const ScheduleMeetingForm = ({ onSubmit, availableSlots }) => {
                         }
                       }}
                     />
-                    
-            
                   </Box>
 
                   <Button

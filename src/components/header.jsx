@@ -10,7 +10,7 @@ const Header = () => {
             <div className=" bg-white shadow-md w-fit p-2 rounded-full">
               👨🏻‍💼
                         </div>
-            <h1 className="text-xl font-bold text-white">Meeting Scheduler</h1>
+            <h1 className="text-xl font-bold text-white">Meeting_test </h1>
           </div>
           
           <div className="flex items-center space-x-4">

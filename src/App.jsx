@@ -117,7 +117,7 @@ const App = () => {
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="bg-white rounded-lg shadow-lg">
+        <div className="bg-white rounded-lg">
           <div className=" bg-gray-50">
             <div className="flex justify-center">
               <CustomTab
@@ -158,6 +158,7 @@ const App = () => {
               )}
             </TabPanel>
           </div>
+          
         </div>
       </div>
     </div>
