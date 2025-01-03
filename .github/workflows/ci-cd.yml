@@ -1,0 +1,199 @@
+# Developer Role Challenge: 
+# You are a Developer working on a job-matching platform that connects freelancers with clients. The platform includes features such as job postings, profile management, scheduling features, and a client request system. Your role is to help implement new features, fix critical bugs, ensure scalability, and collaborate with other team members, including the Product Owner, Scrum Master, and Designers.
+
+The challenge includes multiple tasks based on the current sprint priorities:
+
+Scenario: The platform has three urgent demands:
+» Client-requested feature: Implementing a feature to allow users to schedule meetings directly within the app.
+» Critical bug: Explaining how you would fix a bug that causes users to be unexpectedly logged out when accessing their profiles, causing frustration.
+» Team-initiated feature proposal: Redesigning the homepage to improve user engagement and ease of access to features.
+
+The following tasks need to be completed in the next sprint:
+» New Feature: Implement a feature to allow users to schedule video interviews within the platform.
+» Bug Fix: Resolve a critical bug where completed jobs are not appearing in freelancer profiles.
+» Enhancement: Enhance the dashboard to include a ""Recommended Projects"" feature based on user activity.
+
+Your goal for your team is to develop, implement, and test the features within a two-week sprint while collaborating with the team to maintain a high level of code quality, user experience, and system performance.
+
+Tasks to complete by you
+Part 1: Feature Development - Scheduling Feature
+You are tasked with implementing a Scheduling Feature for a job-matching platform. The goal is to allow users (freelancers and clients) to schedule meetings directly through the platform. This task includes both front-end and back-end development.
+
+For this task, you may simulate a database using in-memory objects instead of building a fully functioning database.
+
+>> 1: User Stories and Acceptance Criteria
+-- User Story 1: Schedule a Meeting
+As a user,
+I want to schedule a meeting with a freelancer or client,
+So that I can discuss job requirements and collaborate efficiently.
+
+Acceptance Criteria: The meeting should include the date, time, duration, and participants (client and freelancer). Users should be able to view scheduled meetings on their dashboard. The system should notify both participants when a meeting is scheduled.
+
+-- User Story 2: Manage Meetings
+As a user,
+I want to update or cancel an existing meeting,
+So that I can keep my schedule accurate and up-to-date.
+
+Acceptance Criteria:
+Users can reschedule by updating date, time, or duration.
+Users can cancel a meeting, and participants are notified.
+
+-- User Story 3: Check Availability
+As a user,
+I want to see available time slots,
+So that I can choose a mutually convenient time for the meeting.
+
+Acceptance Criteria:
+Available time slots should respect each user's schedule and time zone.
+Conflicting time slots should be blocked automatically.
+
+2: Front-End Task
+-- Frameworks and Libraries:
+Use React for the front-end framework.
+Use Tailwind CSS for utility-first styling.
+Use Material UI for specific UI components.
+
+-- Tasks:
+> Develop the Scheduling UI:
+Create a responsive UI for the scheduling feature based on the requirements.
+Implement a form to input meeting details (date, time, duration, participants, title, description).
+Display a calendar or list view of scheduled meetings.
+
+> Reusable Components:
+Build reusable React components such as:
+Date and time pickers (integrate Material UI).
+Cards for displaying meeting details.
+Buttons for scheduling, rescheduling, and canceling.
+
+> Handle State Management:
+Use React hooks (e.g., useState, useEffect) to manage form input and UI states.
+Use API calls (to be developed in Part 3) to fetch and update meeting data.
+
+> Responsive Design:
+Ensure the UI works seamlessly on both desktop and mobile screens.
+Use Tailwind CSS utilities to manage layout, spacing, and typography.
+
+3: Back-End Task
+-- Frameworks and Tools:
+Use Node.js and Express.js for back-end development.
+Simulate a database using in-memory JavaScript objects.
+
+-- Tasks:
+> Create a Database:
+Use MySQL
+
+> Build RESTful Endpoints:
+POST /meetings: Create a new meeting with the provided details and store it in the simulated database.
+GET /users/:userId/available-slots: Fetch available time slots for a user based on predefined mock data.
+PUT /meetings/:meetingId: Update an existing meeting (reschedule).
+DELETE /meetings/:meetingId: Cancel a meeting.
+
+> Error Handling:
+Validate input data (e.g., ensure all required fields are provided).
+Handle edge cases like scheduling conflicts or invalid time slots.
+
+> Mock Notifications:
+Simulate sending notifications by logging a message to the console when a meeting is created, updated, or canceled.
+
+> Time Zone Support:
+Use a library to handle time zone conversions.
+
+>> Deliverables
+-- Front-End:
+Fully functional scheduling interface.
+Responsive and styled using Tailwind CSS and Material UI.
+-- Back-End:
+RESTful API endpoints implemented in Node.js and Express.js.
+In-memory database simulation using JavaScript objects.
+-- Mock Notification:
+A working function that logs notifications for meeting actions.
+-- API Testing:
+Test all endpoints using Postman and share the collection file.
+-- Live Demo:
+Deploy the application and API (e.g., Netlify for the front-end and Render for the back-end).
+
+>> Definition of Done
+-- Front-End:
+Usability and responsiveness.
+Code quality (readability, organization, and modularity).
+-- Back-End:
+Adherence to RESTful principles.
+Proper error handling and validations.
+-- Integration:
+Seamless communication between front-end and back-end.
+End-to-end functionality of the scheduling feature.
+
+
+Part 2 Bug Fix - Random Logouts:
+Although we do not have an existing bug project for the random logouts, you are tasked with theorizing how you would fix the issue of users being logged out unexpectedly when accessing their profiles.
+This bug is suspected to be caused by session management issues related to cookies, authentication tokens, or session timeouts.
+
+Task Requirements
+> Session Management:
+Investigate the possible causes of random logouts (e.g., session expiration, cookie mismanagement, authentication token issues).
+Identify where the issue might arise in the session handling process, especially during the login flow and token refreshing.
+
+> Solution Approach:
+-- Suggest a solution for managing sessions more effectively.
+-- Recommend how you would debug the issue, including the tools and techniques you would use.
+-- Describe how you would test the fix to ensure the logout bug is completely resolved.
+
+Deliverable
+A written explanation of how you would approach debugging and fixing the random logout issue, including details of session management and tools used.
+
+Part 3: Collaboration and Code Review
+> Collaboration - Working with the Team:
+—» The team is composed of developers, designers, and product owners. As part of a cross-functional team, you are required to collaborate closely to ensure that your feature development aligns with the design vision and the product goals.
+You need to participate in code reviews, receive feedback, and help others on the team troubleshoot issues. 
+» How do you approach reviewing other team members' code? 
+» How do you handle conflicting feedback between design and development, especially when it affects project deadlines?
+
+Deliverable: A summary of your approach to code reviews and collaboration within the team, along with one example where you resolved a conflict or helped a teammate with an issue.
+
+Part 4: Quality Assurance, Testing, and Continuous Improvement
+> Testing - Ensuring Quality Code:
+—» You need to ensure that the features and bug fixes meet the highest quality standards. 
+» Write unit tests, integration tests, and functional tests for your code completed at task 1 the schedule feature to ensure that it works as expected. 
+» Additionally, ensure the tests cover edge cases, like users selecting overlapping meeting times, or when the user is logged out before completing the scheduling. Test coverage should be at least 80% for the new feature and bug fixes.
+
+Deliverable: Provide your unit tests, integration tests, and functional tests. Include a test report detailing the scenarios covered and the tools you used for testing. Push this too to Github and do video walkthrough showing the testing coverage.
+
+> Continuous Integration and Deployment:
+—» The team uses CI/CD pipelines for automated testing and deployment. You need to ensure that your code is integrated into the pipeline correctly, and the tests run automatically after each commit.
+» What steps would you take to ensure that your code works seamlessly within the CI/CD pipeline?
+
+Deliverable: A CI/CD integration report detailing the steps you took to integrate your code into the pipeline and the results of the automated tests after each commit.
+
+Part 5: Code Quality, Performance, and Scalability
+» Code Quality and Performance:
+—» As part of the platform’s growth, scalability and performance are critical. You are responsible for ensuring that the scheduling feature and bug fix perform well, even under heavy traffic.
+» How would you optimize the meeting scheduling feature to handle thousands of users scheduling meetings simultaneously without impacting performance? 
+» What measures would you take to ensure that the platform performs well even as more users join?
+
+Deliverable: A report on performance optimization techniques you applied, including caching strategies, load testing results, and how you ensured that the scheduling feature can handle heavy traffic.
+
+Part 6: Documentation and User Experience
+>> Documentation and API Design:
+—» Ensure that the new scheduling feature APIs created is well-documented for future reference by other developers and team members. This documentation should include:
+» API endpoints for scheduling.
+» The expected request and response formats.
+» Any third-party services or libraries used in the development.
+
+Deliverable: Provide API documentation for the scheduling feature and a readme file explaining the feature's architecture, libraries used, and how to run the feature locally.
+
+Part 7: Handling Pressure and Deadlines
+>> Time Management and Deadlines:
+—» The Founder has requested faster delivery of features. The pressure is mounting to complete tasks sooner. 
+» How would you manage the deadlines while maintaining code quality? 
+» How would you communicate the impact of rushed delivery on technical debt and future scalability?
+
+Deliverable: A time management plan outlining how you would prioritize tasks under pressure while maintaining quality, and an explanation of how you would communicate technical debt risks to the team and stakeholders.
+
+Submission Requirements Summary
+» Working code for the meeting scheduling feature and bug fix with API documentation and testing.
+» Code review summary, collaboration approach, and conflict resolution example.
+» Unit, integration, and functional tests with test coverage and test reports.
+» CI/CD integration report for automated testing and deployment.
+Performance optimization techniques applied to ensure scalability.
+» API documentation and feature architecture README.
+» Time management plan for meeting deadlines while maintaining quality" 
